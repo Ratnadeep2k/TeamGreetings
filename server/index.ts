@@ -1,13 +1,12 @@
-import express,{Request,Response}from 'express';
-import { PrismaClient } from '@prisma/client';
+import express from "express";
 const app = express();
-const port = process.env.PORT || 3000;
-const prisma = new PrismaClient();
+const port = 3001;
 
-app.get('/',(req:Request,res:Response)=>{
-    res.send("Hello it is working")
-})
+app.get("/", (req, res) => {
+  console.log("Received request on /");
+  res.send("Hello!");
+});
 
-app.listen(3000,()=>{
-    console.log(`Server is listening on http://localhost:${port}`)
-})
+app.listen(port, () => {
+  console.log(`Server is listening on http://localhost:${port}`);
+});
